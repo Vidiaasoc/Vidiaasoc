@@ -975,36 +975,53 @@
 <label>Nombre</label>
 <input placeholder="Su nombre" type="text"/>
 </div>
-<div class="form-group">
-<label>Organización</label>
-<input placeholder="Institución o empresa" type="text"/>
-</div>
-</div>
-<div class="form-group">
-<label>Correo electrónico</label>
-<input placeholder="correo@ejemplo.com" type="email"/>
-</div>
-<div class="form-group">
-<label>Tipo de servicio</label>
-<select>
-<option value="">Seleccione un servicio...</option>
-<option>Inventario biológico / monitoreo</option>
-<option>Análisis geoespacial / cartografía</option>
-<option>Evaluación de Impacto Ambiental</option>
-<option>Peritaje ambiental</option>
-<option>Due diligence ambiental (EUDR)</option>
-<option>Monitoreo forestal / teledetección</option>
-<option>Capacitación técnica</option>
-<option>Otro</option>
-</select>
-</div>
-<div class="form-group">
-<label>Descripción del proyecto</label>
-<textarea placeholder="Cuéntenos brevemente su proyecto o consulta..."></textarea>
-</div>
-<button class="btn-form">Enviar consulta →</button>
-</div>
-</div>
+<!-- Reemplaza 'tu-correo@ejemplo.com' por el correo donde quieres recibir las consultas -->
+<form action="https://formsubmit.co/VidiaAsociados26@outlook.es" method="POST">
+  
+  <!-- Configuración interna de FormSubmit (Opcional pero recomendado) -->
+  <input type="hidden" name="_next" value="https://vidiaasoc.github.io/Vidiaasoc/"> <!-- Redirección al enviar -->
+  <input type="hidden" name="_subject" value="Nueva consulta desde el sitio web VIDIA"> <!-- Asunto del correo -->
+  <input type="text" name="_honey" style="display:none"> <!-- Antispam silencioso -->
+
+  <!-- Campo: Nombre -->
+  <div class="form-group">
+    <label>Nombre</label>
+    <input type="text" name="nombre" placeholder="Su nombre" required>
+  </div>
+
+  <!-- Campo: Organización -->
+  <div class="form-group">
+    <label>Organización</label>
+    <input type="text" name="organizacion" placeholder="Institución o empresa">
+  </div>
+
+  <!-- Campo: Correo electrónico -->
+  <div class="form-group">
+    <label>Correo electrónico</label>
+    <input type="email" name="email" placeholder="correo@ejemplo.com" required>
+  </div>
+
+  <!-- Campo: Tipo de servicio -->
+  <div class="form-group">
+    <label>Tipo de servicio</label>
+    <select name="servicio" required>
+      <option value="" disabled selected>Seleccione un servicio...</option>
+      <option value="analisis-territorial">Análisis Territorial</option>
+      <option value="consultoria-biologica">Consultoría Biológica</option>
+      <option value="otro">Otro</option>
+    </select>
+  </div>
+
+  <!-- Campo: Descripción del proyecto -->
+  <div class="form-group">
+    <label>Descripción del proyecto</label>
+    <textarea name="descripcion" placeholder="Cuéntenos brevemente su proyecto o consulta..." required></textarea>
+  </div>
+
+  <!-- Botón de envío -->
+  <button type="submit" class="btn-primary">Enviar consulta →</button>
+
+</form>
 </section>
 <!-- ── FOOTER ── -->
 <footer>
