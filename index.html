@@ -967,53 +967,61 @@
             VIDIA Consultoría | Gis & Ambiental
           </div>
 </div>
-</div>
-</div>
-<!-- Reemplaza 'tu-correo@ejemplo.com' por el correo donde quieres recibir las consultas -->
+  <!-- Reemplaza 'tu-correo@ejemplo.com' por el correo donde quieres recibir las consultas -->
 <form action="https://formsubmit.co/VidiaAsociados26@outlook.es" method="POST">
   
-  <!-- Configuración interna de FormSubmit (Opcional pero recomendado) -->
+  <!-- Configuración interna de FormSubmit -->
   <input type="hidden" name="_next" value="https://vidiaasoc.github.io/Vidiaasoc/"> <!-- Redirección al enviar -->
   <input type="hidden" name="_subject" value="Nueva consulta desde el sitio web VIDIA"> <!-- Asunto del correo -->
   <input type="text" name="_honey" style="display:none"> <!-- Antispam silencioso -->
 
   <div class="contacto-form">
-<div class="form-row">
-<div class="form-group">
-<label>Nombre</label>
-<input placeholder="Su nombre" type="text"/>
-</div>
-<div class="form-group">
-<label>Organización</label>
-<input placeholder="Institución o empresa" type="text"/>
-</div>
-</div>
-<div class="form-group">
-<label>Correo electrónico</label>
-<input placeholder="correo@ejemplo.com" type="email"/>
-</div>
-<div class="form-group">
-<label>Tipo de servicio</label>
-<select>
-<option value="">Seleccione un servicio...</option>
-<option>Inventario biológico / monitoreo</option>
-<option>Análisis geoespacial / cartografía</option>
-<option>Evaluación de Impacto Ambiental</option>
-<option>Peritaje ambiental</option>
-<option>Due diligence ambiental (EUDR)</option>
-<option>Monitoreo forestal / teledetección</option>
-<option>Capacitación técnica</option>
-<option>Otro</option>
-</select>
-</div>
-<div class="form-group">
-<label>Descripción del proyecto</label>
-<textarea placeholder="Cuéntenos brevemente su proyecto o consulta..."></textarea>
-</div>
-<button class="btn-form">Enviar consulta →</button>
-</div>
-</div>
-
+    <div class="form-row">
+      <div class="form-group">
+        <label>Nombre</label>
+        <!-- Se agregó name="nombre" y required -->
+        <input name="nombre" placeholder="Su nombre" type="text" required />
+      </div>
+      
+      <div class="form-group">
+        <label>Organización</label>
+        <!-- Se agregó name="organizacion" -->
+        <input name="organizacion" placeholder="Institución o empresa" type="text" />
+      </div>
+    </div>
+    
+    <div class="form-group">
+      <label>Correo electrónico</label>
+      <!-- Se agregó name="email" y required -->
+      <input name="email" placeholder="correo@ejemplo.com" type="email" required />
+    </div>
+    
+    <div class="form-group">
+      <label>Tipo de servicio</label>
+      <!-- Se agregó name="servicio" y required al select -->
+      <select name="servicio" required>
+        <option value="" disabled selected>Seleccione un servicio...</option>
+        <option value="Inventario biológico / monitoreo">Inventario biológico / monitoreo</option>
+        <option value="Análisis geoespacial / cartografía">Análisis geoespacial / cartografía</option>
+        <option value="Evaluación de Impacto Ambiental">Evaluación de Impacto Ambiental</option>
+        <option value="Peritaje ambiental">Peritaje ambiental</option>
+        <option value="Due diligence ambiental (EUDR)">Due diligence ambiental (EUDR)</option>
+        <option value="Monitoreo forestal / teledetección">Monitoreo forestal / teledetección</option>
+        <option value="Capacitación técnica">Capacitación técnica</option>
+        <option value="Otro">Otro</option>
+      </select>
+    </div>
+    
+    <div class="form-group">
+      <label>Descripción del proyecto</label>
+      <!-- Se agregó name="descripcion" y required -->
+      <textarea name="descripcion" placeholder="Cuéntenos brevemente su proyecto o consulta..." required></textarea>
+    </div>
+    
+    <!-- Se especificó type="submit" para asegurar el envío -->
+    <button type="submit" class="btn-form">Enviar consulta →</button>
+  </div>
+</form>
 </form>
 </section>
 <!-- ── FOOTER ── -->
