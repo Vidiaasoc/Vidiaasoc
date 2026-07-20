@@ -377,61 +377,84 @@
     }
 
     /* ── CONTACTO ── */
-    #contacto { background: var(--bg-white); }
-    .contacto-grid {
-      display: grid; grid-template-columns: 1fr 1fr;
-      gap: 60px; margin-top: 56px; align-items: start;
-    }
-    .contacto-info h3 {
-      font-size: 1.25rem; font-weight: 700;
-      color: var(--green-deep); margin-bottom: 20px;
-    }
-    .contacto-info p {
-      color: var(--text-mid); font-size: 0.98rem;
-      line-height: 1.7; margin-bottom: 28px;
-    }
-    .contacto-items { display: flex; flex-direction: column; gap: 16px; }
-    .contacto-item {
-      display: flex; align-items: center; gap: 14px;
-    }
-    .contacto-item-icon {
-      width: 40px; height: 40px; border-radius: 10px;
-      background: var(--bg-light);
-      display: flex; align-items: center; justify-content: center;
-      font-size: 1.1rem;
-    }
-    .contacto-item-text { font-size: 0.9rem; color: var(--text-mid); }
-    .contacto-item-text strong { display: block; color: var(--green-deep); font-size: 0.82rem; letter-spacing: 0.05em; }
-    .contacto-form { display: flex; flex-direction: column; gap: 16px; }
-    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
-    .form-group { display: flex; flex-direction: column; gap: 6px; }
-    .form-group label {
-      font-size: 0.8rem; font-weight: 600;
-      color: var(--green-deep); letter-spacing: 0.05em;
-    }
-    .form-group input,
-    .form-group select,
-    .form-group textarea {
-      background: var(--bg-light);
-      border: 1.5px solid rgba(42,191,163,0.2);
-      border-radius: 10px; padding: 12px 16px;
-      font-size: 0.93rem; color: var(--text-dark);
-      font-family: inherit;
-      transition: border-color 0.2s;
-      outline: none; width: 100%;
-    }
-    .form-group input:focus,
-    .form-group select:focus,
-    .form-group textarea:focus { border-color: var(--teal); }
-    .form-group textarea { resize: vertical; min-height: 110px; }
-    .btn-form {
-      background: linear-gradient(135deg, var(--teal), var(--green-mid));
-      color: #fff; border: none; border-radius: 50px;
-      padding: 14px 36px; font-size: 0.95rem; font-weight: 700;
-      cursor: pointer; transition: opacity 0.2s, transform 0.15s;
-      align-self: flex-start; letter-spacing: 0.03em;
-    }
-    .btn-form:hover { opacity: 0.9; transform: translateY(-1px); }
+#contacto { background: var(--bg-white); }
+
+/* Ajustado para que reconozca el contenedor del formulario como la segunda columna */
+.contacto-grid {
+  display: grid; 
+  grid-template-columns: 1fr 1fr;
+  gap: 60px; 
+  margin-top: 56px; 
+  align-items: start;
+}
+
+.contacto-info h3 {
+  font-size: 1.25rem; font-weight: 700;
+  color: var(--green-deep); margin-bottom: 20px;
+}
+.contacto-info p {
+  color: var(--text-mid); font-size: 0.98rem;
+  line-height: 1.7; margin-bottom: 28px;
+}
+.contacto-items { display: flex; flex-direction: column; gap: 16px; }
+.contacto-item {
+  display: flex; align-items: center; gap: 14px;
+}
+.contacto-item-icon {
+  width: 40px; height: 40px; border-radius: 10px;
+  background: var(--bg-light);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.1rem;
+}
+.contacto-item-text { font-size: 0.9rem; color: var(--text-mid); }
+.contacto-item-text strong { display: block; color: var(--green-deep); font-size: 0.82rem; letter-spacing: 0.05em; }
+
+/* NUEVO: Asegura que el formulario ocupe todo el espacio de su columna de la cuadrícula */
+.contacto-form-container {
+  width: 100%;
+}
+
+.contacto-form { display: flex; flex-direction: column; gap: 16px; }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.form-group { display: flex; flex-direction: column; gap: 6px; }
+.form-group label {
+  font-size: 0.8rem; font-weight: 600;
+  color: var(--green-deep); letter-spacing: 0.05em;
+}
+
+/* Modificado para asegurar consistencia en las cajas de texto */
+.form-group input,
+.form-group select,
+.form-group textarea {
+  background: var(--bg-light);
+  border: 1.5px solid rgba(42,191,163,0.2);
+  border-radius: 10px; padding: 12px 16px;
+  font-size: 0.93rem; color: var(--text-dark);
+  font-family: inherit;
+  transition: border-color 0.2s;
+  outline: none; width: 100%;
+  box-sizing: border-box; /* Evita que los paddings ensanchen los inputs de más */
+}
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus { border-color: var(--teal); }
+.form-group textarea { resize: vertical; min-height: 110px; }
+.btn-form {
+  background: linear-gradient(135deg, var(--teal), var(--green-mid));
+  color: #fff; border: none; border-radius: 50px;
+  padding: 14px 36px; font-size: 0.95rem; font-weight: 700;
+  cursor: pointer; transition: opacity 0.2s, transform 0.15s;
+  align-self: flex-start; letter-spacing: 0.03em;
+}
+.btn-form:hover { opacity: 0.9; transform: translateY(-1px); }
+
+/* RESPONSIVE: Evita que en celulares se mire todo comprimido de lado a lado */
+@media (max-width: 768px) {
+  .contacto-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+}
 
     /* ── FOOTER ── */
     footer {
@@ -938,92 +961,94 @@
 </section>
 <!-- ── CONTACTO ── -->
 <section id="contacto">
-<div class="section-tag reveal">Trabajemos juntos</div>
-<h2 class="section-title reveal">Contáctenos</h2>
-<p class="section-sub reveal">¿Tiene un proyecto ambiental en mente? Cuéntenos y le preparamos una propuesta técnica.</p>
-<div class="contacto-grid">
-<div class="contacto-info">
-<h3>¿En qué podemos ayudarle?</h3>
-<p>Desde inventarios de biodiversidad hasta análisis geoespaciales y due diligence ambiental, estamos listos para acompañarle con metodología científica y tecnología de punta.</p>
-<div class="contacto-items">
-<div class="contacto-item">
-<div class="contacto-item-icon">📍</div>
-<div class="contacto-item-text">
-<strong>Ubicación</strong>
-           Distrito Central-Honduras, Centroamérica
+  <div class="section-tag reveal">Trabajemos juntos</div>
+  <h2 class="section-title reveal">Contáctenos</h2>
+  <p class="section-sub reveal">¿Tiene un proyecto ambiental en mente? Cuéntenos y le preparamos una propuesta técnica.</p>
+  
+  <div class="contacto-grid">
+    
+    <!-- Columna Izquierda: Información de contacto -->
+    <div class="contacto-info">
+      <h3>¿En qué podemos ayudarle?</h3>
+      <p>Desde inventarios de biodiversidad hasta análisis geoespaciales y due diligence ambiental, estamos listos para acompañarle con metodología científica y tecnología de punta.</p>
+      
+      <div class="contacto-items">
+        <div class="contacto-item">
+          <div class="contacto-item-icon">📍</div>
+          <div class="contacto-item-text">
+            <strong>Ubicación</strong>
+            Distrito Central-Honduras, Centroamérica
           </div>
-</div>
-<div class="contacto-item">
-<div class="contacto-item-icon">📧</div>
-<div class="contacto-item-text">
-<strong>Correo electrónico</strong>
+        </div>
+        <div class="contacto-item">
+          <div class="contacto-item-icon">📧</div>
+          <div class="contacto-item-text">
+            <strong>Correo electrónico</strong>
             vidiaasociados26@outlook.es
           </div>
-</div>
-<div class="contacto-item">
-<div class="contacto-item-icon">💼</div>
-<div class="contacto-item-text">
-<strong>Instagram</strong>
+        </div>
+        <div class="contacto-item">
+          <div class="contacto-item-icon">💼</div>
+          <div class="contacto-item-text">
+            <strong>Instagram</strong>
             VIDIA Consultoría | Gis & Ambiental
           </div>
-</div>
-</div>
-  <!-- Reemplaza 'tu-correo@ejemplo.com' por el correo donde quieres recibir las consultas -->
-<form action="https://formsubmit.co/VidiaAsociados26@outlook.es" method="POST">
-  
-  <!-- Configuración interna de FormSubmit -->
-  <input type="hidden" name="_next" value="https://vidiaasoc.github.io/Vidiaasoc/"> <!-- Redirección al enviar -->
-  <input type="hidden" name="_subject" value="Nueva consulta desde el sitio web VIDIA"> <!-- Asunto del correo -->
-  <input type="text" name="_honey" style="display:none"> <!-- Antispam silencioso -->
+        </div>
+      </div>
+    </div> <!-- .contacto-info cierra aquí, liberando espacio a la par -->
 
-  <div class="contacto-form">
-    <div class="form-row">
-      <div class="form-group">
-        <label>Nombre</label>
-        <!-- Se agregó name="nombre" y required -->
-        <input name="nombre" placeholder="Su nombre" type="text" required />
-      </div>
+    <!-- Columna Derecha: Formulario de FormSubmit -->
+    <form action="https://formsubmit.co/VidiaAsociados26@outlook.es" method="POST" class="contacto-form-container">
       
-      <div class="form-group">
-        <label>Organización</label>
-        <!-- Se agregó name="organizacion" -->
-        <input name="organizacion" placeholder="Institución o empresa" type="text" />
+      <!-- Configuración interna de FormSubmit -->
+      <input type="hidden" name="_next" value="https://vidiaasoc.github.io/Vidiaasoc/">
+      <input type="hidden" name="_subject" value="Nueva consulta desde el sitio web VIDIA">
+      <input type="text" name="_honey" style="display:none">
+
+      <div class="contacto-form">
+        <div class="form-row">
+          <div class="form-group">
+            <label>Nombre</label>
+            <input name="nombre" placeholder="Su nombre" type="text" required />
+          </div>
+          
+          <div class="form-group">
+            <label>Organización</label>
+            <input name="organizacion" placeholder="Institución o empresa" type="text" />
+          </div>
+        </div>
+        
+        <div class="form-group">
+          <label>Correo electrónico</label>
+          <input name="email" placeholder="correo@ejemplo.com" type="email" required />
+        </div>
+        
+        <div class="form-group">
+          <label>Tipo de servicio</label>
+          <select name="servicio" required>
+            <option value="" disabled selected>Seleccione un servicio...</option>
+            <option value="Inventario biológico / monitoreo">Inventario biológico / monitoreo</option>
+            <option value="Análisis geoespacial / cartografía">Análisis geoespacial / cartografía</option>
+            <option value="Evaluación de Impacto Ambiental">Evaluación de Impacto Ambiental</option>
+            <option value="Peritaje ambiental">Peritaje ambiental</option>
+            <option value="Due diligence ambiental (EUDR)">Due diligence ambiental (EUDR)</option>
+            <option value="Monitoreo forestal / teledetección">Monitoreo forestal / teledetección</option>
+            <option value="Capacitación técnica">Capacitación técnica</option>
+            <option value="Otro">Otro</option>
+          </select>
+        </div>
+        
+        <div class="form-group">
+          <label>Descripción del proyecto</label>
+          <textarea name="descripcion" placeholder="Cuéntenos brevemente su proyecto o consulta..." required></textarea>
+        </div>
+        
+        <button type="submit" class="btn-form">Enviar consulta →</button>
       </div>
-    </div>
-    
-    <div class="form-group">
-      <label>Correo electrónico</label>
-      <!-- Se agregó name="email" y required -->
-      <input name="email" placeholder="correo@ejemplo.com" type="email" required />
-    </div>
-    
-    <div class="form-group">
-      <label>Tipo de servicio</label>
-      <!-- Se agregó name="servicio" y required al select -->
-      <select name="servicio" required>
-        <option value="" disabled selected>Seleccione un servicio...</option>
-        <option value="Inventario biológico / monitoreo">Inventario biológico / monitoreo</option>
-        <option value="Análisis geoespacial / cartografía">Análisis geoespacial / cartografía</option>
-        <option value="Evaluación de Impacto Ambiental">Evaluación de Impacto Ambiental</option>
-        <option value="Peritaje ambiental">Peritaje ambiental</option>
-        <option value="Due diligence ambiental (EUDR)">Due diligence ambiental (EUDR)</option>
-        <option value="Monitoreo forestal / teledetección">Monitoreo forestal / teledetección</option>
-        <option value="Capacitación técnica">Capacitación técnica</option>
-        <option value="Otro">Otro</option>
-      </select>
-    </div>
-    
-    <div class="form-group">
-      <label>Descripción del proyecto</label>
-      <!-- Se agregó name="descripcion" y required -->
-      <textarea name="descripcion" placeholder="Cuéntenos brevemente su proyecto o consulta..." required></textarea>
-    </div>
-    
-    <!-- Se especificó type="submit" para asegurar el envío -->
-    <button type="submit" class="btn-form">Enviar consulta →</button>
+    </form>
+
   </div>
-</form>
-</form>
+</section>
 </section>
 <!-- ── FOOTER ── -->
 <footer>
